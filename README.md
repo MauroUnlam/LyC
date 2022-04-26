@@ -1,6 +1,8 @@
 # Compilador grupo 10
 
-Comision: Martes noche
+Comision: 
+
+- Martes noche
 
 Integrantes: 
 
