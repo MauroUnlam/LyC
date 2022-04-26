@@ -6,5 +6,5 @@ Comision:
 
 Integrantes: 
 
-- Carrizo melany 
-- Orlandi mauro
+- Carrizo Melany 
+- Orlandi Mauro
