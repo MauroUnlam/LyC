@@ -1,0 +1,173 @@
+										-/ ----------------- TEMAS COMUNES ----------------- /-
+
+-/ La siguiente linea contiene un error lexico, ya que si ingresa un token no reconocido /-
+-/ # /-
+
+-/ ----------------- Test constantes y asignacion ----------------- /-
+
+-/ La siguiente linea es un caso en el que el identificador supera el rango maximo permitido /-
+-/ identificador_largo:= g /-
+
+-/ La siguiente linea es un caso en el que una const string supera el rango maximo permitido /-
+-/ cadena_1:= "aaaallllllkkkkkjjjjjhhhhhggggga" /-
+
+cadena_2:= "oknfllllllkkkkkjjjjjhhhhh"
+a:= z
+b:= 5
+c:= 3.16504098
+d:= 0.0165
+e:= z
+
+-/ La siguiente linea es un caso en el que una const int supera el rango maximo permitido /-
+-/ f:= 70000 /-
+
+g := 0
+
+-/ La siguiente linea es un caso en el que el operador de asignacion es incorrecto /-
+-/ a == 10 /-
+
+-/ La siguiente linea es un caso en el que se intenta asignar un valor a una constante /-
+-/ 9 := 3 /-
+
+-/ ----------------- Test de seleccion con condicion ----------------- /-
+
+if(a < b)
+ test := a
+endif
+
+if(a > b)
+ test := a
+endif
+
+if(!(a<b))
+ test := a
+endif
+
+if((a < b) || (a < c))
+ test := a
+endif
+
+if((a < b) && (a > c))
+ test := a
+endif
+
+-/ Las siguientes lineas son un caso en el que la seleccion multiple esta mal formada /-
+-/ if(a < b && (a > c)) /-
+-/ endif /-
+
+-/ Las siguientes lineas son un caso en el que la seleccion multiple esta mal formada /-
+-/ if((a < b)  (a > c)) /-
+-/ endif /-
+
+-/ Las siguientes lineas son un caso en el que la seleccion esta mal formada /-
+-/ if a>b /-
+-/ endif /-
+
+-/ Las siguientes lineas son un caso en el que la condicion esta mal formada /-
+-/ if(a,b) /-
+-/ endif /-
+
+-/ La siguiente linea es un caso en el que la seleccion no se escribe correctamente /-
+-/ if(a<b) /-
+-/ end /-
+
+-/ ----------------- Test de ciclos con condicion ----------------- /-
+
+while(a>z)
+endwhile
+
+while(a < b)
+ test := a
+endwhile
+
+while(a>b)
+ test := a
+endwhile
+
+while(!(a<b))
+ test := a
+endwhile
+
+while((a < b)||(a < c))
+ test := a
+endwhile
+
+while((a < b) && (a > c))
+ test := a
+endwhile
+
+-/ Las siguientes lineas son un caso en el que la palabra reservada while esta mal escrita /-
+-/ wile(a<b) /-
+-/ endwhile /-
+
+-/ ----------------- Test ciclos anidados ----------------- /-
+
+while(!(a < b))
+	while(!(a < b))
+		while(!(a < b))
+			while(!(a < b))
+				while(!(a < b))
+					f:= 123
+				endwhile
+			endwhile
+		endwhile
+	endwhile
+endwhile
+
+-/ ----------------- Test de bloque declaracion ----------------- /-
+
+DECVAR
+	a, b, c,d :float
+ENDDEC
+
+DECVAR
+	pi: float
+	q: int
+	cadena: string
+ENDDEC
+
+pi := 3.14
+q:= 10
+cadena:= "Hola mundo!"
+
+DECVAR
+	a, b, c,d :float
+	j,k,l: int j,k,l: int
+	q,w,e,r,t,y : float
+ENDDEC
+
+
+DECVAR
+	z :float abc: string
+ENDDEC
+
+-/ Las siguientes lineas son un caso en el que el bloque de declaracion esta mal hecho /-
+-/ DECVAR /-
+	-/ a : int : float /-
+-/ ENDDEC /-
+
+-/ La siguiente linea es un caso en el que se intentan declarar variables fuera del bloque de declaracion /-
+-/ a,b,c: float /-
+
+										-/ ----------------- TEMAS ESPECIALES ----------------- /-
+
+avg([a,b])
+avg([2 , a+b , c*(d+e) , 48])
+
+avg ([2.3 , 1.22])
+
+while(between(a, [2 ; a*(b+4)]))
+endwhile
+
+if(between(z, [2.3 ; 11.22]))
+endif
+
+-/ La siguiente linea es un caso en el que los parametros de avg no estan delimitados correctamente /-
+-/ avg([2,a-b) /-
+
+-/ Las siguientes lineas son un caso en el que la parabra reservada between esta mal escrita /-
+-/ if(betwen(a,[1;2])) /-
+-/ endif /-
+
+-/ La siguiente linea es un caso en el que se intenta utilizar between fuera de una condicion /-
+-/ between(a, [2 ; a*(b+4)]) /-
